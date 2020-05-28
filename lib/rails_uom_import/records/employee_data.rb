@@ -27,6 +27,24 @@ module RailsUomImport
       @sindicato = record[:sindicato] || 1 # Default "Si"
       @sueldo = record[:sueldo]
     end
+
+    ## Define all class variables as attr_reader
+    def define_attr_readers
+      # get the eigenclass of the current object
+      klass = class << self; self; end
+
+      symbols = instance_variables.map { |s|
+        # remove the @ at the start of the symbol
+        s.to_s[1..-1].to_sym
+      }
+
+      # augment the eigenclass
+      klass.class_eval do
+        symbols.each do |s|
+          attr_reader s
+        end
+      end
+    end
   end
 
 end
