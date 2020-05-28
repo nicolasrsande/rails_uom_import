@@ -22,7 +22,7 @@ module RailsUomImport
     def initialize(record)
       @cuil = record[:cuil]
       @nombre = record[:nombre]
-      @filler = @filelr2 = @filler3 = ' '
+      @filler = @filler2 = @filler3 = ' '
       @situacion = record[:situacion] || 7 # Default "Recibe haberes regularmente"
       @sindicato = record[:sindicato] || 1 # Default "Si"
       @sueldo = record[:sueldo]
