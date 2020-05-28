@@ -1,7 +1,6 @@
 module RailsUomImport
 
   class UomImport < Fixy::Document
-
     def initialize(nomina)
       @nomina = nomina
     end
@@ -12,5 +11,4 @@ module RailsUomImport
       end
     end
   end
-
 end

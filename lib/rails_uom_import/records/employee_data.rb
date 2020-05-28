@@ -26,6 +26,7 @@ module RailsUomImport
       @situacion = record[:situacion] || 7 # Default "Recibe haberes regularmente"
       @sindicato = record[:sindicato] || 1 # Default "Si"
       @sueldo = record[:sueldo]
+      define_attr_readers
     end
 
     ## Define all class variables as attr_reader
@@ -46,5 +47,4 @@ module RailsUomImport
       end
     end
   end
-
 end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_uom_import (0.1.0)
+    rails_uom_import (1.0)
       fixy
 
 GEM
