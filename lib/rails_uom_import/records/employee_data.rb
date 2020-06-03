@@ -23,8 +23,8 @@ module RailsUomImport
       @cuil = record[:cuil]
       @nombre = record[:nombre]
       @filler = @filler2 = @filler3 = ' '
-      @situacion = record[:situacion] || 7 # Default "Recibe haberes regularmente"
-      @sindicato = record[:sindicato] || 1 # Default "Si"
+      @situacion = record[:situacion] || 00 # Default "Recibe haberes regularmente"
+      @sindicato = record[:sindicato] || 'S' # Default "Si"
       @sueldo = record[:sueldo]
       define_attr_readers
     end
