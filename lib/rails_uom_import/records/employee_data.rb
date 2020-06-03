@@ -15,7 +15,7 @@ module RailsUomImport
     field :filler, 88, '42-129', :alphanumeric
     field :situacion, 2, '130-131', :numeric
     field :filler2, 8, '132-139', :alphanumeric
-    field :sindicato, 1, '140-140', :numeric
+    field :sindicato, 1, '140-140', :alphanumeric
     field :filler3, 1, '141-141', :alphanumeric
     field :sueldo, 8, '142-149', :alphanumeric
 
