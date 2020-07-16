@@ -12,7 +12,7 @@ module RailsUomImport
     # ------------------------------------------------------------
     field :cuil, 11, '1-11', :numeric
     field :nombre, 30, '12-41', :alphanumeric
-    field :filler1, 61, '42-103', :alphanumeric
+    field :filler1, 62, '42-103', :alphanumeric
     field :provincia, 2, '104-105', :numeric
     field :filler2, 4, '106-109', :alphanumeric
     field :estado_civil, 2, '110-111', :numeric
