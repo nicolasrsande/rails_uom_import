@@ -12,15 +12,22 @@ module RailsUomImport
     # ------------------------------------------------------------
     field :cuil, 11, '1-11', :numeric
     field :nombre, 30, '12-41', :alphanumeric
+    field :filler1, 61, '42-103', :alphanumeric
     field :provincia, 2, '104-105', :numeric
+    field :filler2, 4, '106-109', :alphanumeric
     field :estado_civil, 2, '110-111', :numeric
+    field :filler3, 18, '112-129', :alphanumeric
     field :situacion, 2, '130-131', :numeric
+    field :filler4, 3, '132-134', :alphanumeric
     field :incapacidad, 1, '135-135', :numeric
+    field :filler5, 4, '136-139', :alphanumeric
     field :sindicato, 1, '140-140', :alphanumeric
+    field :filler6, 1, '141-141', :alphanumeric
     field :sueldo, 8, '142-149', :alphanumeric
     field :categoria, 2, '150-151', :numeric
 
     def initialize(record)
+      @filler1, @filler2, @filler3, @filler4, @filler5, @filler6 = ' '
       @cuil = record[:cuil]
       @nombre = record[:nombre]
       @provincia = record[:provincia] || 01 # Default "CABA"
