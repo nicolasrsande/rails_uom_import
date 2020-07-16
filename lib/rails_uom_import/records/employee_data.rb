@@ -17,7 +17,7 @@ module RailsUomImport
     field :filler2, 4, '106-109', :alphanumeric
     field :estado_civil, 2, '110-111', :numeric
     field :filler3, 18, '112-129', :alphanumeric
-    field :situacion, 2, '130-131', :numeric
+    field :situacion, 2, '130-131', :alphanumeric
     field :filler4, 3, '132-134', :alphanumeric
     field :incapacidad, 1, '135-135', :numeric
     field :filler5, 4, '136-139', :alphanumeric
@@ -27,12 +27,12 @@ module RailsUomImport
     field :categoria, 2, '150-151', :numeric
 
     def initialize(record)
-      @filler1, @filler2, @filler3, @filler4, @filler5, @filler6 = ' '
+      @filler1 = @filler2 = @filler3 = @filler4 = @filler5 = @filler6 = ' '
       @cuil = record[:cuil]
       @nombre = record[:nombre]
-      @provincia = record[:provincia] || 01 # Default "CABA"
+      @provincia = record[:provincia] || 1 # Default "CABA"
       @estado_civil = record[:estado_civil] || 1 # Default "SOLTERO"
-      @situacion = record[:situacion] || 00 # Default "Recibe haberes regularmente"
+      @situacion = record[:situacion] || 0 # Default "Recibe haberes regularmente"
       @sindicato = record[:sindicato] || 'S' # Default "Si"
       @sueldo = record[:sueldo]
       @categoria = record[:categoria] || 1 # Default "Operario"
