@@ -11,12 +11,20 @@ module RailsUomImport
     #       name          size      Range             Format
     # ------------------------------------------------------------
     field :cuil, 11, '1-11', :numeric
-    field :nombre, 30, '12-41', :alphanumeric
-    field :filler1, 62, '42-103', :alphanumeric
-    field :provincia, 2, '104-105', :numeric
+    field :nombre, 30, '12-42', :alphanumeric
+    field :calle, 32, '43-73', :alphanumeric
+    field :calle_numero, 5, '74-78', :alphanumeric
+    field :filler1, 8, '79-86', :alphanumeric
+    field :localidad, 13, '87-99', :alphanumeric
+    field :cod_pos, 4, '100-103', :alphanumeric
+    field :provincia, 2, '104-105', :alphanumeric
     field :filler2, 4, '106-109', :alphanumeric
-    field :estado_civil, 2, '110-111', :numeric
-    field :filler3, 18, '112-129', :alphanumeric
+    field :estado_civil, 2, '110-111', :alphanumeric
+    field :sexo, 1, '112-112', :alphanumeric
+    field :nacionalidad, 3, '113-115', :alphanumeric
+    field :filler2, 4, '116-119', :alphanumeric
+    field :fecha_nacimiento, 8, '120-127', :alphanumeric
+    field :filler3, 2, '128-129', :alphanumeric
     field :situacion, 2, '130-131', :alphanumeric
     field :filler4, 3, '132-134', :alphanumeric
     field :incapacidad, 1, '135-135', :alphanumeric
@@ -24,18 +32,25 @@ module RailsUomImport
     field :sindicato, 1, '140-140', :alphanumeric
     field :filler6, 1, '141-141', :alphanumeric
     field :sueldo, 8, '142-149', :alphanumeric
-    field :categoria, 2, '150-151', :numeric
+    field :categoria, 2, '150-151', :alphanumeric
 
     def initialize(record)
       @filler1 = @filler2 = @filler3 = @filler4 = @filler5 = @filler6 = ' '
+      @sexo = record[:sexo] || 'M' # Default "M" Masculino
       @cuil = record[:cuil]
       @nombre = record[:nombre]
-      @provincia = record[:provincia] || 1 # Default "CABA"
-      @estado_civil = record[:estado_civil] || 1 # Default "SOLTERO"
-      @situacion = record[:situacion] || 0 # Default "Recibe haberes regularmente"
+      @nacionalidad = record[:nacionalidad] || 0 # Default 00 Not Selected
+      @provincia = record[:provincia] || '1' # Default 'CABA'
+      @localidad = record[:localidad] || 'CABA' # Default 'CABA'
+      @cod_pos = record[:cod_pos] || 1414 # Default 1414 'Villa Crespo'
+      @calle = record[:calle] || ' ' # Default Blank not required
+      @calle_numero = record[:calle_numero] || ' ' # Default Blank not required
+      @estado_civil = record[:estado_civil] || '1' # Default "SOLTERO"
+      @fecha_nacimiento = record[:fecha_nacimiento] || ' ' # Default Blank not required
+      @situacion = record[:situacion] || '01' # Default "Recibe haberes regularmente"
       @sindicato = record[:sindicato] || 'S' # Default "Si"
       @sueldo = record[:sueldo]
-      @categoria = record[:categoria] || 1 # Default "Operario"
+      @categoria = record[:categoria] || '2' # Default "Operario"
       @incapacidad = record[:incapacidad] || 'N' # Default "No"
       define_attr_readers
     end
